@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '1.5.10.RELEASE'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: org.springframework.boot.gradle.plugin.SpringBootPlugin
+apply plugin: 'io.spring.dependency-management'
+
+version = '1.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    name = 'Eureka Service Discovery'
+    description = 'Eureka Service Discovery' 
+    version='1.0.0'
+    sourceEncoding='UTF-8'
+}
+
+repositories {
+    jcenter()
+    maven { url 'https://repo.spring.io/release/' }
+    maven { url "http://repo.spring.io/libs-snapshot-local" }
+    maven { url "http://repo.spring.io/libs-milestone-local" }
+    maven { url "http://repo.spring.io/libs-release-local" }
+}
+
+dependencyManagement {
+	imports { 
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Edgware.SR3"
+	}
+}
+
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-starter-eureka-server'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile "junit:junit"
+}
