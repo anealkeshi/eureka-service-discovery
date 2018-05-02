@@ -1,0 +1,1 @@
+Running with VM argument -Dspring.profiles.active=peer1 and -Dspring.profiles.active=peer2 to start cluster of eureka servers.
